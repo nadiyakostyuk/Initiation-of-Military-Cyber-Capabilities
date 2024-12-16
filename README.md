@@ -11,4 +11,12 @@
 
 <h2> Replication Code and Analysis </h2>
 
-All coding scripts needed for replication and analysis are located in the /docs folder and are described below. 
+All coding scripts needed for replication and analysis are located in the /analysis folder and are described below. 
+
+The <a href = "https://github.com/nadiyakostyuk/Initiation-of-Military-Cyber-Capabilities/tree/main/analysis/code_data"> /code_data </a> folder contains the data and code used to produce the results.
+
+The <a href = "https://github.com/nadiyakostyuk/Initiation-of-Military-Cyber-Capabilities/tree/main/analysis/output"> /output </a> folder contains the output for the main results.
+
+
+
+
