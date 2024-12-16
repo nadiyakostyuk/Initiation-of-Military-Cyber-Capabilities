@@ -1,12 +1,14 @@
 # Initiation-of-Military-Cyber-Capabilities
 
-Kostyuk, Nadiya."Beyond Threats: How Allies and Bureaucratic Competition Shape the Initial Development of Military Cyber Capabilities." Under Review.
+<a href= "https://www.cmu.edu/cmist/about-us/people/faculty/nadiya-kostyuk.html"> Kostyuk, Nadiya <a>."Beyond Threats: How Allies and Bureaucratic Competition Shape the Initial Development of Military Cyber Capabilities." Under Review.
 
-<h1> The Paper </h1>
+<h2> The Paper </h2>
 
 <a href= "https://www.youtube.com/watch?v=a1bpBVV5Idk">Main Manuscript </a>
 
+<a href= "https://www.youtube.com/watch?v=a1bpBVV5Idk"> Online Appendix </a>
 
-<h1> Replication Code and Analysis </h1>
+
+<h2> Replication Code and Analysis </h2>
 
 All coding scripts needed for replication and analysis are located in the /docs folder and are described below. 
