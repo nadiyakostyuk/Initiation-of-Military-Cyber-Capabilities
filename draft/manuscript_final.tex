@@ -1,0 +1,757 @@
+\documentclass[12pt, letterpaper]{article}
+\usepackage{afterpage}
+\usepackage{multicol}
+\usepackage{epigraph}
+\usepackage{multirow}
+\usepackage{changes}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{pifont}% http://ctan.org/pkg/pifont
+\newcommand{\cmark}{\ding{51}}%
+\newcommand{\xmark}{\ding{55}}%
+\usepackage{exscale}
+\usepackage[mathscr]{eucal}
+\usepackage[footnotesize,labelsep=colon]{caption}
+\usepackage[hang,flushmargin]{footmisc}
+\usepackage{tabularx,array}
+\usepackage{psfrag,graphicx}
+\usepackage{graphicx}
+\usepackage{caption}
+\captionsetup{justification   = raggedright,
+	singlelinecheck = false}
+\usepackage{colortbl}
+\usepackage{comment,mathpazo}
+\usepackage[authoryear,round,comma]{natbib}
+\usepackage[colorlinks=true,linkcolor=red!50!black,citecolor=white!50!black,urlcolor=blue!50!black]{hyperref}
+\usepackage{rotating}
+\usepackage{lscape}
+\usepackage{soul}
+\newcommand\tab[1][1cm]{\hspace*{#1}}
+%\usepackage{natbib}
+\let\oldthebibliography=\thebibliography
+\let\endoldthebibliography=\endthebibliography
+\renewenvironment{thebibliography}[1]{%
+	\begin{oldthebibliography}{#1}%
+		\setlength{\parskip}{1ex}%
+		\setlength{\itemsep}{0ex}%
+	}%
+	{%
+	\end{oldthebibliography}%
+}
+
+\newcommand{\bline}[4]{ % #1 x; #2 y; #3 angle; #4 height
+	\begin{picture}(0,0)%
+	\setlength{\unitlength}{1pt}%
+	\put(#1,#2){\rotatebox{#3}{\raisebox{0mm}[0mm][0mm]{%
+				\makebox[0mm]{\rule{0.4pt}{#4pt}}}}}%
+	\end{picture}}
+
+\renewcommand{\baselinestretch}{1.35}
+\setlength{\textwidth}{16.5cm}
+\setlength{\textheight}{21.5cm}
+\voffset=-1.25cm
+\hoffset=-1.75cm
+\parskip=2.5pt
+
+\let\oldfootnote\footnote
+\renewcommand\footnote[1]{\oldfootnote{%
+		\renewcommand\baselinestretch{.8}%
+		\large\footnotesize\ignorespaces#1}} \addtolength{\footnotesep}{3pt}
+
+\usepackage{titling}
+\settowidth{\thanksmarkwidth}{*}
+\setlength{\thanksmargin}{-\thanksmarkwidth}
+
+\theoremstyle{plain}
+\newtheorem{thm}{Theorem}
+\newtheorem{prop}{\it Proposition}
+\newtheorem{coro}{\it Corollary}
+\newtheorem{lem}{\it Lemma}
+\newtheorem{ass}{\it Assumption}
+\newtheorem*{ass-nonumber}{\it Assumption}
+\renewcommand{\qedsymbol}{$Q.E.D.$}
+
+\theoremstyle{remark}
+\newtheorem*{rmk-nonumber}{\it Remark}
+\newtheorem*{eg-nonumber}{\it Example}
+\newtheorem{eg}{\it Example}
+\newtheorem{rmk}{\it Remark}
+
+\usepackage[font=small,skip=0pt]{caption}
+
+\usepackage{titlesec}
+% restore section numbering lost in titlesec:
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd{\ttlh@hang}{\parindent\z@}{\parindent\z@\leavevmode}{}{}
+\patchcmd{\ttlh@hang}{\noindent}{}{}{}
+\makeatother
+% end
+\titlespacing*{\section}{0pt}{.25\baselineskip}{.25\baselineskip}
+\titlespacing*{\subsection}{0pt}{.25\baselineskip}{.25\baselineskip}
+\titlespacing*{\subsubsection}{0pt}{.25\baselineskip}{.25\baselineskip}
+
+\newcommand{\fakesection}[1]{%
+	\par\refstepcounter{section}% Increase section counter
+	\sectionmark{#1}% Add section mark (header)
+	\addcontentsline{toc}{section}{\protect\numberline{\thesection}#1}% Add section to ToC
+	% Add more content here if needed
+}
+
+\usepackage{setspace}
+\usepackage{booktabs}
+\usepackage{wrapfig}
+\usepackage{indentfirst}
+\usepackage{booktabs}% http://ctan.org/pkg/booktabs
+\newcommand{\tabitem}{~~\llap{\textbullet}~~}
+\usepackage{enumitem}
+\usepackage{framed}
+\usepackage{lipsum}
+\newtheorem{theorem}{Theorem}[section]
+\usepackage{wrapfig}
+\newenvironment{ppl}{\fontfamily{ppl}\selectfont}{\par}
+\usepackage{subcaption}
+\bibpunct[, ]{(}{)}{;}{a}{,}{,} 
+\newtheorem{lemma}[theorem]{Lemma}
+%\newtheorem{prop}{Proposition}
+\usepackage{tcolorbox}
+\usepackage{float}
+
+% for rotating text in cells:
+\usepackage{rotating}
+
+% for specialcell:
+% Allow line breaks with \\ in specialcells
+\newcommand{\specialcell}[2][c]{%
+	\begin{tabular}[#1]{@{}l@{}}#2\end{tabular}
+}
+
+\usepackage{xr}
+\externaldocument[App-]{DiffusionORG_OnlineAppendix_112723}
+%\externaldocument{../../Interviews/Interview_v4}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%
+% FRONT MATTER
+%
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\title{\large{\textit{Beyond Threats: How Allies and Bureaucratic Competition Shape the Initial Development of Military Cyber Capabilities}}	
+	} 
+\author{Nadiya Kostyuk\thanks{
+		Carnegie Mellon Institute for Strategy and Technology, Carnegie Mellon University; nkostyuk@andrew.cmu.edu
+		}\thanks{
+    The author would like to thank Aaron Brantly, Andres Gannon, Miguel Gomez, Jenny Jun, Joshua Rovner, Ryan Shandler, Brandon Valeriano, as well as the editors and three anonymous reviewers of \textit{International Interactions}, for their helpful feedback on earlier drafts of this paper.
+    The data and replication materials are available at the \textit{International Interactions} Dataverse page: \url{http://dvn.iq.harvard.edu/dvn/dv/internationalinteractions}. All questions regarding replication should be directed to the author at nkostyuk@andrew.cmu.edu. 
+} 
+}
+\date \today
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%
+% TITLE PAGE
+%
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+	% TITLE PAGE
+\begin{titlepage}
+\maketitle
+
+\begin{abstract}
+	\footnotesize
+	The politics of how nations design their militaries when they start developing new technologies is a critical question in international relations as it has implications on military effectiveness, civil-military relations, war conduct, power projection, and peace and stability. Cyber is the latest example of a technology that countries have started developing within their militaries. Yet, there is limited theoretical and empirical work on the factors that explain how nations choose to design their militaries to start developing cyber capabilities. Using panel data on state military organizations between 2000 and 2018, this article shows that allies and bureaucratic competition affect the military design choice whereas threats are insufficient in explaining this choice. These results are robust to a number of alternative specifications and generally succeed in out-of-sample prospective predictions. The findings have important implications for the study of national security policy, alliances, and innovation.  
+\end{abstract}
+\end{titlepage}
+		
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%
+% MAIN TEXT
+%
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+
+
+\newpage
+% INTRO
+\setlength{\epigraphwidth}{.8\textwidth}
+
+
+
+\doublespacing		
+
+\noindent
+The politics of how nations design their militaries to start developing new technologies is a crucial issue in international relations, impacting military effectiveness, civil-military relations, the conduct of war, power projection, and overall peace and stability \citep{Gannon2021use, White2019}. Countries have made different choices regarding where within their militaries to begin developing cyber capabilities, a recent example of such technological advancements \citep{Blessing2020, Wiener2016penetrate}. Research shows that a state's decision to integrate cyber capabilities influences modern warfare, affecting critical factors such as deterrence \citep{borghard2017logic, lindsay2015coercion}, escalation \citep{Borghard2019SSQ, Kreps2019}, national strategies \citep{Rovner2023}, and dynamics within alliances \citep{Guenther2022JOGSS, Kostyuk2020Deterrence, Kostyuk2024JPR}. Despite the significant global political ramifications, there remains a notable gap in both theoretical and empirical research on how nations design their militaries to begin developing cyber capabilities.
+
+% summarize litreview section here: 
+The international relations (IR) literature offers extensive insights into why militaries adopt various technologies (e.g., \citet{most1989logic, jo2007determinants, Horowitz2010PUP, Fuhrmann2017, Kahn2022JCR, Gannon2021use}). Building on these works, recent scholarship explains why countries acquire cyber capabilities \citep{gomez2016arming, valeriano2018cyber, Kostyuk2024JPR}. 
+A few recent works that focus on military cyber organizations explore either why states struggle to create effective cyber organizations \citep{Smeets2022SS} or focus on countries' different force postures \citep{Blessing2020, Cunningham2022IS}. Building on this scholarship and extending it further, this article investigates the variation in how countries start institutionalizing their military cyber capabilities and the organizational choices they make during this process.
+
+
+% theory and explanation. 
+As with any technology, the military can  start incorporating cyber in one of the two ways: (1) add these new capabilities to an existing agency or (2) create a new agency responsible for the development of these capabilities. In the former case, the military acquires cyber capabilities to provide combat support for its ground operations, for instance, making cyber capabilities an integral part of its army. In the latter case, the military creates a separate cyber organization with its own separate mission of withstanding and responding to cyber attacks. While the military can pursue both options sequentially, this research investigates which option it chooses first. Delegating responsibility to an existing agency allows a country to quickly begin working on new capacity development, but it can be difficult to optimize the development of operational capacity. 
+Creating a new agency, on the other hand, takes more time and resources, but it more effectively increases the new capacity. 
+
+
+
+Figure~\ref{fig:mil_trend} illustrates the initial choices countries made when beginning to develop cyber capabilities within their military organizations from 2000 to 2018. It shows that seventy-five countries opted to integrate these capabilities into existing agencies, while twenty chose to establish new agencies. This suggests a preference for incorporating cyber capabilities into existing military structures, at least initially. This observation raises key questions: \textit{What explains this preference?} Specifically, \textit{why do most countries expand their cyber capabilities within existing military agencies, even though creating new agencies might more effectively enhance operational cyber capacity?} Conversely, \textit{why do some countries choose to create new organizations, despite the higher costs and longer path to achieving operational capacity?} Understanding the rationale behind these choices is essential, as each option impacts military operations, readiness, and effectiveness in different ways.
+% 159 countries included in the analysis.
+
+
+\begin{figure}[ht]
+	\centering
+	\caption{\textsc{Initial Integration of Cyber Technologies within Militaries over Time: Existing versus New Agencies}}
+	\vspace{2mm}
+	\includegraphics[width=.9\textwidth]{Figures/comp_risk/mil_trend_competing_risk_v2.pdf}
+	%\vspace{2mm}
+	\caption*{\footnotesize{
+			\textit{Note:} The figure displays the choice countries made over time when they started integrating cyber technologies within their militaries. 
+			\textit{New agency}---nations developed brand new agencies with a sole responsibility of cybersecurity. 
+			\textit{Existing agency}---%represents examples when 
+			nations assigned their existing agencies to deal with cybersecurity.
+			The lines display a cumulative number of countries that made this choice in a given year. 
+			As of 2018, seventy-five countries used existing agencies and twenty created new agencies 		
+			\textit{Source:} Author's calculations based on \citet{Kostyuk2022MoD}'s State Cybersecurity Organizations (SCO) data (v1.0).
+		}
+		}
+	\label{fig:mil_trend}
+\end{figure}
+
+
+Studying how and why states begin integrating cyber capabilities into their militaries is important for four key reasons. First, the unique characteristics of cyber weapons---such as their transitory nature, which affects their time-dependent effectiveness \citep{Buchanan2020TNSR}, and their high asset specificity, which limits their redeployment \citep{Williamson1991ASQ}---may influence how states conduct operations, project power, and build security. Understanding these dynamics is crucial for scholars and policy-makers. Second, as many countries have only recently begun developing their cyber arsenals, this research provides valuable insights into how states start integrating cyber capabilities into military strategies. It also offers a unique opportunity to identify the key drivers and predict the future evolution of this technology. Third, applying theories of weapon proliferation to new cases can enhance our understanding of the proliferation process and its global political implications. Lastly, media reports often make bold claims about cyber capacity based on speculation rather than rigorous empirical analysis. This research addresses these speculations and offers important lessons for policymakers.
+
+
+To identify a few potential mechanisms that can systematically explain how states start integrating cyber technologies within their militaries, I build on works that have applied the interest-capacity framework to explain the diffusion of new technologies (e.g., \citep{jo2007determinants, Fuhrmann2017, Kahn2022JCR}). I supplement existing explanations identified in the literature with evidence from sixty-four semi-structured interviews conducted in 2018 with cybersecurity experts who have current or past government affiliations—many of whom have connections to the military—from twenty-five countries.\footnote{The IRB approval is \#HUM00127749 (February 14, 2018).} I hypothesize that both supply- and demand-side factors systematically influence this process and test theories related to the threat environment, the influence of allies, and bureaucratic competition.
+
+
+% data and findings:
+I test my hypotheses using \citet{Kostyuk2022MoD}'s panel data on state cybersecurity organizations for the 2000-2018 period. I find that allies and bureaucratic competition most consistently explain a country's choice of how to start integrating cyber technologies. The results suggest two competing influences of allies. On the one hand, countries imitate their allies' cyber capacity by starting to develop cyber capabilities within existing military agencies. On the other hand, countries complement their allies' cyber capacity by starting to develop cyber capabilities within a new military cyber agency. When there is greater competition among military agencies, countries are likely to create a new agency for integrating cyber technologies. While my results present only correlations—not causation—they withstand a number of robustness checks. Importantly, my model succeeds in predicting which countries will next start integrating cyber technologies within their militaries (i.e., out-of-sample prospective predictions).
+
+
+These findings make five important contributions to the political science literature.
+First, they advance the scholarship on cyber capacity proliferation %(e.g., \citet{gomez2016arming, Calderaro2020, Kostyuk2024JPR}) 
+by explaining the variation in operational cyber capacity resulting from different approaches to initial integration of cyber technologies within militaries. 
+Second, they enrich the literature on the spread of military technologies and innovation by demonstrating that threats alone do not fully explain how nations start developing cyber capabilities. Instead, domestic and international factors, such as bureaucratic competition and the influence of allies, offer a more consistent explanation.
+Third, they contribute to understanding diversification and specialization within alliances (e.g., by exploring how these phenomena manifest in the cyber domain).
+Fourth, they enhance the military effectiveness literature by highlighting the crucial role of internal power dynamics in the initial development of cyber capabilities and their impact on operational effectiveness and combined-arms approaches.
+Last, this study adds to the political science literature on diffusion by examining the timing of competing choices countries make when initially integrating new technologies, offering deeper insights into the factors shaping defense policies and their implications for global politics. 
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% NEW SECTION
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Literature Review}
+
+
+\noindent
+The IR literature provides extensive insights into why militaries adopt various technologies (e.g., \citet{most1989logic, jo2007determinants, Horowitz2010PUP, Fuhrmann2017, Kahn2022JCR, Gannon2021use}). These studies typically focus on the adoption of specific systems or artifacts, such as tanks or drones. Cyber, however, presents a distinct case due to its broader and more complex nature. It is so intricate that it has been conceptualized with its own set of domain assumptions \citep{Lupovici2016, Branch2021IO}, even as it overlaps with intelligence and other domains \citep{lindsay2021cyber}.
+
+
+Building on these existing works, there is a growing body of theoretical and empirical research that explores why nations develop their cyber capabilities. This next group of scholars zeroes in on a more focused interpretation of cyber---the concept of ``state military cyber capacity'' \citep{gomez2016arming, valeriano2018cyber, Kostyuk2021ISQ, Kostyuk2024JPR}. \citet[46]{Kostyuk2024JPR} defines \textit{state military cyber capacity} as ``the ability of a nation-state’s military to effectively conduct operations in cyberspace, including the defense of its own networks and systems from cyber threats and the execution of offensive cyber operations for various purposes, such as intelligence gathering and disruption of adversarial networks.'' For this article, I adopt this definition and analyze how countries choose to organize their military in the development of this capacity.
+
+
+Most research on the diffusion of military cyber capabilities has focused on their \textit{use}---specifically, executed cyber operations (e.g., \citealt{valeriano2018cyber}). Recently, however, attention has shifted to the \textit{institutionalization} of cyber capacity, focusing on the organizations states develop to build this capacity \citep{Kostyuk2024JPR}. This latter focus has notable advantages. 
+Unlike non-reproducible cyber-operations that exploit isolated, time-limited vulnerabilities, institutional developments offer a publicly visible increase in organizational capacity, demonstrating a state’s consistent ability to produce cyber weapons \citep{Kostyuk2021ISQ}. Building on this scholarship, this article extends the discussion by examining the variation in \textit{how} countries start \textit{institutionalizing} their military cyber capabilities. Put simply, rather than focusing solely on instances when countries deploy their ``cyber weapons,'' this article investigates how militaries choose to develop these weapons. 
+This approach provides a deeper understanding of how militaries plan and execute their behavior in cyberspace.
+
+
+The topic of the emergence and selection of military cyber organizations is relatively new in the IR literature. However, three key works are particularly relevant. First, \citet{Smeets2022SS}' people-exploits-tools-infrastructure-organization (PETIO) framework offers several resource-based logics of why states struggle to establish effective military cyber organizations. This framework provides insights into factors influencing the decision to place cyber capabilities within existing or new organizations. However, the PETIO theory remains relatively agnostic about how states specifically address these resource challenges through organizational choices. Second, \citet{Blessing2020} also remains neutral on the question of whether to establish new or integrate cyber capabilities into existing organizations. While this study, like the current article, examines adoption dynamics, it focuses more on the broader issues of force structure creation rather than the establishment of cyber-specific organizations. Lastly, \citet{Cunningham2022IS}'s theory of strategic substitution primarily investigates China’s adoption of various force postures, rather than examining the global patterns of creating cyber-specific organizations.
+
+
+Until now, the literature has largely overlooked how militaries begin developing their cyber capabilities. This study addresses this gap. Understanding how states initiate the development of cyber capabilities within their militaries is crucial because it has significant implications for peace and security. 
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% NEW SECTION
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{The initial choice to develop military cyber capacity: Existing versus new agencies}\label{sec:theory}
+
+
+\noindent
+How do militaries begin integrating new technologies? 
+Prior research shows that when a new technological capability emerges, a military can either assign responsibility for this capability to an existing agency or establish a new, specialized agency focused solely on this development. The same framework applies to cyber capabilities.
+Specifically, countries face two primary options when considering the development of military cyber-capabilities. Figure~\ref{fig:comp_risk} illustrates two approaches a state which lacks cyber capacity can take to begin integrating cyber technologies.
+First, a state can do it within an existing agency\footnote{
+	Since different armed forces, and even different branches of service of the armed forces, may use the same name to denote different types of organizations, I use ``agency'' to avoid any confusion. By ``agency'' I mean an ``active-duty military organization with the capability and authority to direct and control strategic cyberspace operations to influence strategic diplomatic and/or military interactions'' \citep[235]{Blessing2021}. 
+	} 
+by adding new cyber responsibilities to the agency's mission. 
+For instance, in addition to ensuring the safety of Albanian maritime space, the Albanian Ministry of Defense's Inter-institutional Maritime Operational Center (IMOC) became responsible for the development of cyber capacity. Second, a state can create a new agency whose sole responsibility is cybersecurity.
+For instance, the Japanese Self Defense Forces' Cyber Defense Unit's duty is ``monitoring information and communications networks and responding to cyber attacks on a round-the-clock basis.''\footnote{
+	For more information, please visit the website of the Japanese Ministry of Defense: https://www.mod.go.jp/e/publ/answers/cyber/index.html
+	}
+
+ %\begin{wrapfigure}{r}{0.5\textwidth}
+\begin{figure}
+	\caption{\textsc{Initial Choice of Integrating Cyber Technologies: Competing Risks Scheme}}
+	\label{fig:comp_risk}
+	\begin{center}
+		\includegraphics[width=.7\linewidth]{Figures/comp_risk/comp_risk_v2.png}
+	\end{center}
+\end{figure}
+%\end{wrapfigure}
+
+Importantly, both choices identify the initial step of cyber-capacity development that generally takes place within any military agency and does not explain the full evolution of capacity development that can take the form of a combatant command, for instance.\footnote{
+        While, in theory, a state can attempt both to create a new agency and to incorporate cyber into existing agencies, my focus is on explaining whichever occurs first.
+	}
+Despite this, studying how a state chooses to start integrating cyber technologies within its military is important because this choice explains how a country decides to organize its cyber capabilities and how this newly-developed 
+bureaucratic capacity will translate into operational capacity, 
+communicating a country’s level of commitment to develop its ability to inflict pain and defend itself and allies via cyberspace. 
+
+
+% EXISTING: mostly cons
+Each choice has its pros and cons. Developing cyber capabilities within an existing agency allows a country to start working on this capacity more quickly. However, optimizing the agency's operations in this new area can be challenging due to the need to adapt its standard operating procedures. Assigning cybersecurity responsibilities to an existing military agency requires significant mutual adaptation, affecting both innovation and organizational change. For example, as the IMOC takes on new cyber responsibilities, it must adjust its approach to safeguarding maritime space, while its organizational culture influences the development of its cyber defenses. This dual adjustment can impact the agency's overall performance against each challenge.
+Furthermore, adding new cyber responsibilities to an existing military agency can lead to mission creep, introducing unwarranted complexity and potentially blurring the agency's core mission. This, in turn, can slow down the development of operational cyber capacity and reduce the agency's effectiveness on the battlefield \citep{Kostyuk2022TNSR}.
+
+On the other hand, if military operations span multiple domains, initial integration of cyber technologies into an existing agency may facilitate better force synchronization compared to creating a separate agency, which often encounters bureaucratic barriers in coordinating with others. Additionally, adding cybersecurity responsibilities to an existing agency can streamline information sharing and collaboration, whereas establishing a separate agency may complicate these processes.
+
+
+Creating a new military cyber agency can be highly beneficial, particularly given the unique characteristics of cyber technologies. Cyber technologies, with their high asset specificity, require significant technical expertise that must be continuously updated and maintained. Unlike physical assets such as tanks, which have low specificity and can be used effectively regardless of who operates them, cyber operations are highly specialized. They often need to be tailored to specific networks and vulnerabilities \citep{Buchanan2020TNSR}. The creators of cyber tools generally possess a deeper understanding of their products compared to those who merely acquire or use them. Therefore, having a dedicated cyber agency ensures that the organization can develop and manage these technologies with the required expertise, leading to better overall effectiveness of independent cyber capabilities in the long run. 
+
+
+Creating a new military cyber agency is not without a number of challenges. First, it generally requires more time and resources than integrating cybersecurity responsibilities into an existing agency. Establishing a new agency involves setting up new infrastructure, recruiting and training personnel, and developing new operational protocols, which can be costly and time-consuming. Additionally, new agencies often face initial inefficiencies as they build their internal processes and integrate new systems. Second, a newly established agency may encounter significant bureaucratic hurdles, including inter-agency coordination challenges and resistance from existing agencies that might perceive it as a threat to their authority or resources. This can lead to delays and complications in implementing effective cyber strategies. Third, creating a new agency can lead to fragmentation of efforts and lack of synergy with existing military operations, potentially undermining the effectiveness of cyber capabilities due to difficulties in coordinating across different units. Finally, the establishment of a new agency might result in a lack of immediate integration with established military practices and cultures, which can affect its operational efficiency and ability to quickly adapt to evolving cyber threats.
+ 
+
+Given that each choice has its pros and cons, it is important to understand the factors that influence this decision. The next section will explore the mechanisms likely to affect how and why a state chooses between initial integration of cyber capabilities within existing agencies or creating a new agency dedicated to this task.
+
+ 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% NEW SECTION
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section*{Explaining Initial Integration of Cyber Technologies} 
+
+\noindent
+Scholars have applied the interest-capacity framework to explain various international relations phenomena, including democratization, war, central bank independence, and international economic organizations \citep{Bodea2015IO, Gleditsch2006IO, Simmons2008IO, siverson1990opportunity}. 
+They have also used this framework to explain adoption of a new technology, focusing on the \textit{interests} or \textit{willingness} of relevant actors in acquiring it (i.e., demand-side factors) and the \textit{capacity} or \textit{opportunity} of these actors to develop or obtain this technology (supply-side factors) \citep{most1989logic, jo2007determinants, Fuhrmann2017}. 
+Using this framework, scholars consider a number of demand- and supply-side factors that affect a country’s decision to develop military cyber capacity, including threats and rivalry, elite influence, Internet reliance, regime type, prestige, influence of allies, among others \citep{gomez2016arming, brantly2016decision, Calderaro2020}. 
+These works generally focus on a binary choice---capacity development or its lack.
+Many of them are country-specific \citep{Tabansky2020} or region-specific \citep{brantly2016decision}.
+Building on this scholarship and extending it a step further, 
+I explain how the initial choice to integrate cyber technologies takes place.
+ 
+To identify a few potential mechanisms that can systematically affect this process, I supplement existing explanations identified in the literature with the evidence from sixty-four semi-structured interviews conducted in 2018 with cybersecurity experts with a current or past government affiliation---many of them have connection to the military---from twenty-five countries.\footnote{
+	Online Appendix Section 1 provide a detailed explanation of the interviews I conducted for this project. 
+	}
+The main purpose of these interviews was theory building and not theory testing. 
+Below, I discuss a few potential mechanisms---threat environment, influence of alliances, and bureaucratic competition.
+\vspace{3mm}
+
+
+\noindent
+\textit{\textbf{Threat environment.}}
+Countries often develop new capabilities in response to international threats (see, e.g., \citealt{jervis1978cooperation, waltz1979theory, posen1993nationalism, Resende2007}). The security dilemma, where ``one state’s gain in security often inadvertently threatens others’’ \citep[170]{jervis1978cooperation}, creates incentives for nations to innovate. % acquire new technologies. 
+A state concerned about the size and effectiveness of its capabilities relative to its rival might imitate the same capabilities as its rival in order to effectively counter its enemy’s strategy \citep{Resende2007, Evangelista1984WP}.
+Cyber capabilities are no exception.
+Past research shows states' concerns about cyber-threats as a cyber-capacity driver \citep{gomez2016arming, Calderaro2020}.
+The interviews that I conducted with cybersecurity experts further corroborate this reasoning and provide anecdotal evidence that ongoing disputes or tense relations with China and Russia, for example, trigger countries to start developing their military cyber capacity (e.g., \citealp{interviews2019}: \#3, \#11, \#35). 
+
+
+As a result, a state concerned with an enemy’s growing cyber capabilities is likely to pay attention to the enemy's cyber institutions and might wish to structure its forces similarly to this enemy to be better prepared to fight them in cyberspace.  
+For instance, a Finnish security analyst explains the role Russia plays in how Finland approaches the development of its military cyber capacity: ``Our thinking is to some degree impacted by the only potential mortal threat that we might have to face at some point in time, Russia...Their view on cyber differs from most of the Western nations...As we have to be prepared to operate effectively against our adversaries, we also have to be able to think like they are thinking and be able to utilize also their concepts and ideas. Thus...Russian way of seeing cyber has had some impact on our thinking, particularly in the military domain’’ (\citealp{interviews2019}: \#16). 
+Since adversaries' cyber institutions are likely to shape a country's military cyber institutions (e.g., \citealp{interviews2019}: \#3, \#11, \#35), I propose the following hypotheses: 
+
+
+\begin{quote}
+	\textbf{H1A:} 
+	\textit{Countries are more likely to start developing their cyber capabilities by incorporating them within existing military agencies when their adversaries have similarly started incorporating new cyber capabilities within their existing military agencies. 
+	}
+	 
+	
+	\textbf{H1B:} 
+	\textit{Countries are more likely to start developing their cyber capabilities by creating new military cyber agencies when their adversaries have similarly started developing cyber capabilities by creating new military cyber agencies.}
+	
+\end{quote}
+ 
+\vspace{3mm}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+\noindent
+\textit{\textbf{Influence of Allies.}}
+Besides building arms, states also form alliances to balance against external threats \citep{waltz1979theory}.
+Research shows that allies have an incentive to share and transfer their capabilities to weaker alliance members in order to increase an alliance’s overall security \citep{Yarhi2016IS}. 
+Given this incentive, allies are likely to play a role in whether and how states decide to integrate cyber technologies within their militaries.
+\citet{Kostyuk2024JPR} shows that allies are particularly important in the process of cyber-capacity development because they serve as a supplier of information and training. Specifically, to increase an alliance’s overall security, a country’s ally that already possesses cyber capabilities is eager to help the country develop its own cyber capacity.  
+Given cyber tools’ transitory nature, which makes their effective use time-dependent \citep{Buchanan2020TNSR}, an ally is not willing to share these exact tools with a country. Instead, an ally shares its knowledge and expertise in the form of training and joint military exercises,\footnote{
+	I would like to thank an anonymous reviewer for pointing out that during these exercises countries and their allies are working on integrating their cyber capabilities to be used in joint/combined military operations. 	
+	} 
+and help with institution-building \citep{Smeets2022SS}.
+
+
+An ally's willingness to share information about its institutions creates an additional incentive for a nation to imitate these institutions when developing cyber capacity of its own so states can more effectively tackle common threats.
+For instance, when developing its cybersecurity apparatus, Denmark paid close attention to what Germany and the Unites States were doing and modeled its cybersecurity organizations after these countries' organizations (\citealt{interviews2019}: \#50). Norway is known to ``copy'' the U.K.'s cyber institutions (\citealt{interviews2019}: \#11).
+South Korea designed its cyber command after the U.S. 
+The same Finnish security analyst who explained the role rivalries play in Finland's process of developing cyber capacity also elaborated on an important role of the country's allies in this process: ``As we work together with the US and NATO..., 
+it is clear that it must have had its impact on our way of viewing cyber and information domain. 
+In order to be able to operate together with like-minded countries, we have to share concepts, organizational structures, ways to conceive operations, etc.''
+(\citealp{interviews2019}: \#16).
+Since allies are likely to shape a country's military cyber institutions (e.g., %Kostyuk, 2022;
+ \citealt{interviews2019}: \#12, \#2, \#35), I propose the following hypotheses:
+
+
+\begin{quote}
+	\textbf{H2A:} 
+	\textit{Countries are more likely to start developing their cyber capabilities by incorporating them within existing military agencies when their allies have similarly started incorporating new cyber capabilities within their existing military agencies.}
+	\vspace{2mm}
+	
+	\textbf{H2B:} 
+	\textit{Countries are more likely to start developing their cyber capabilities by creating new military cyber agencies when their allies have similarly started developing their cyber capabilities by creating new military cyber agencies.}
+\end{quote}
+
+\vspace{3mm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+\noindent
+\textit{\textbf{Bureaucratic Competition \& Bureaucratic Dominance.}} 
+Research shows that bureaucratic competition can also affect how militaries incorporate new technologies \citep{Allison1975armaments, Brown2019, Neufeld2005end, Grauer2015WP}. Each bureaucratic agency operates with its own institutional goals and interests, focusing on maintaining influence, fulfilling its mission, and securing the necessary capabilities to ensure the organization's health \citep{Allison1969}. Crucially, bureaucracies also compete to increase their influence, resources, budget, and personnel within the broader government structure \citep{lai2014domestic}.\footnote{ In addition to bureaucratic competition, organizational culture can influence how countries decide to integrate new technologies. Although the current research design, which examines the initial integration of technologies across countries over time, does not allow to test this mechanism, prior studies that trace this process through individual case studies have highlighted its significance \citep{White2019, Kostyuk2022sources}.
+    } 
+
+Preliminary anecdotal evidence from a survey of existing scholarship and my interviews suggests that bureaucratic competition seems to play a role in how military decides to start integrating cyber technologies (e.g., \citealt{Tabansky2020}, \citealp{interviews2019}: \#9, \#17, \#27, \#36, \#39). Bureaucracies compete for integrating cyber capabilities because these capabilities allow agencies to increase their influence by providing a more efficient and cheap way of achieving an agency's objective. 
+As with any new technology, cyber offers new warfighting opportunities often creating an expectation of a cheap victory \citep{Rovner2023}. But unlike other technologies, cyber-operations can uniquely serve as both a complementary tool for tactical military operations and a substitute for military force.\footnote{
+	The efficiency of cyber-operations as complements and substitutes remains out of the scope of this paper. For a review of these debates, see \citealt{KostyukGartzke2022}.
+	} 
+Well-executed cyber-operations provide an efficient and quick way of corrupting enemy communications and disrupting their battlefield effectiveness \citep{liff2012cyberwar}. States can also use cyber-operations to degrade or destroy enemy capabilities in peacetime \citep{valeriano2018cyber}.
+
+
+Integrating the development of cyber capabilities into an existing agency's mission does not appear to detract from the time and resources dedicated to its core priorities. In fact, my interviewees suggest that adding cyber capabilities to an agency’s portfolio can create opportunities for securing additional resources. As a Danish security analyst explains, “Cyber is sexy. Organizations fight to get ‘cyber’ under their umbrella as ‘cyber’ means more funding”  (\citealp{interviews2019}: \#23). Importantly, this influx of funding for cyber initiatives does not necessarily result into new missions that completely diverge from the agency's current objectives. Instead, it enhances the agency's ability to achieve its existing goals through new means.
+
+
+Using this explanation, I argue that agencies are generally eager to develop cyber-capabilities and compete to do so. Research shows that agencies with greater influence and resources are more likely to secure a monopoly over these capabilities, at least initially \citep{kaplan2016dark}. This tendency is particularly evident when agencies already possess a certain level of IT expertise, which can serve as a strong foundation for the initial development of cyber capabilities.
+For instance, among all U.S. services, the Air Force played ``an instrumental role in the development of computing technologies, and consequently embraced the operational potential of cyberspace well over a decade before the other services'' \citep[170]{White2019}.
+
+
+I refer to an agency with greater power, resources, and/or expertise relevant to cybersecurity as "bureaucratically dominant." I argue that such an agency is more likely to be the initial developer of cyber capabilities. This is because bureaucratic competition is lower when one agency holds a dominant position, making it easier for that agency to secure the necessary resources and authority. In contrast, when multiple agencies hold equal influence, bureaucratic competition intensifies, with no single agency dominating. As a result, each agency may compete for control over the development and allocation of cyber-relevant resources. In such cases, a new agency may be created to bypass these competing interests, ensuring a more focused and efficient development of cyber capabilities.
+\textit{Hypothesis 3A} summarizes this logic.
+
+\begin{quote}
+	\textbf{H3A}:
+	\textit{Countries with agencies that hold monopoly on  power, resources, and/or expertise relevant to cybersecurity (i.e., low bureaucratic competition/high bureaucratic dominance) are more likely to initiate the development of cyber capabilities within these agencies, while countries with agencies that lack such a monopoly (i.e., high bureaucratic competition/low bureaucratic dominance) are more likely to create new agencies to fill this role.}
+\end{quote}
+
+In some cases, when multiple agencies appear to have equal power, resources, or expertise, this equality may not be the result of genuine competition, but rather a form of collusion \citep{cote1996politics}.\footnote{I would like to thank an anonymous reviewer for pointing out this alternative pathway.} Agencies may coordinate their actions to maintain a balance of power, preventing any single agency from dominating. This collusion could reduce the likelihood of a new agency being created, as the agencies may deliberately keep each other on equal footing rather than compete for control. As a result, instead of high bureaucratic competition leading to the creation of new agencies, collaboration and shared influence may persist, maintaining multiple agencies with equal authority over cyber-capabilities.
+
+\begin{quote}
+	\textbf{H3B}: 
+	\textit{In countries where agencies appear to have equal power, resources, or expertise relevant to cybersecurity (i.e., high bureaucratic competition/low bureaucratic dominance), the equality may indicate collusion rather than competition, reducing the likelihood of creating new agencies. In such cases, existing agencies may start developing cyber capabilities through coordinated efforts.}
+\end{quote}    
+
+
+
+\vspace{3mm}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% NEW SECTION
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Data \& Empirical Strategy}\label{sec:data}
+
+\noindent
+This section briefly introduces my data and empirical strategy. Online Appendix Section 2 includes more details. 
+\vspace{3mm}
+
+%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Dependent Variable: Initial choice to start developing military cyber capabilities}
+
+\noindent
+Since I am interested in a competing choice a country makes when it starts integrating cyber technologies within its military (Figure~\ref{fig:comp_risk}), my dependent variable receives a ``1'' when a country starts developing cyber capabilities within an existing military agency (\texttt{Existing}), a ``2'' when it starts developing them within a new military agency (\texttt{New}), and a ``0’’ if it does nothing during the 2000-2018 period. To create my dependent variable, I use \citet{Kostyuk2022MoD}'s State Cybersecurity Organizations (SCO) data (v1.0). To identify relevant military agencies from the SCO dataset, I follow \citet{Kostyuk2024JPR}'s approach, which defines ``a military agency'' as including both ``active- or reserve-duty military organizations or civilian defense agencies responsible for developing and implementing military cyber organizations.'' Using this approach, an example of what I code as a ``1'' would be Luxembourg's Directorate of Defense becoming responsible for developing capacity against cyber attacks \citep[12]{Luxembourg2017Defense}.  An example of what I code as a ``2'' would be building the Operational Center for Cyber Defense within Bulgaria's armed force meant to ``respond to cyber and hybrid effects of national and international scale'' \citep[42-43]{Bulgaria2016NCSS}.\footnote{
+    It is worth noting that civilian defense agencies, like the Luxembourg's Directorate of Defense, are a higher-level proxy measure for cyber in the military. 
+    } 
+Out of 159 nations included in the analysis,\footnote{
+	I exclude countries that do not have militaries (e.g., Costa Rica). Due to the data missingness in some covariates, some countries did not make it to the final sample.
+	}  
+ seventy-five countries used existing agencies and twenty countries created new agencies.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Main Predictors}
+\noindent
+My theoretical explanation considers three possible drivers of how states choose to initially integrate cyber technologies: (1) the influence of adversaries who have already started integrated these technologies; (2) the influence of allies who have already started integrated these technologies; and (3) bureaucratic competition.
+\vspace{3mm}
+
+
+\noindent
+\textbf{\textit{Influence of adversaries.}}
+Since states can attack each other using cyber and/or conventional means, I identify adversaries using \citet{Diehl2021CMPS}'s Peace Data (v3.01)\footnote{
+	This data covers rivalries who have active war plans, frequent militarized disputes, absent communication, and no diplomatic recognition or diplomatic hostility. 
+		}
+and \citet{valeriano2018cyber}'s Dyadic Cyber Incident Dataset (DCID) (v1.5).
+I use \citet{Kostyuk2022MoD}'s SCO data to record where adversaries started integrating cyber technologies.
+Since I consider the impact of two choices adversaries can make when they start integrating cyber technologies---placing them within \textit{existing} or \textit{new} agencies---I create the following two variables.
+First, \textit{Adversaries Integrating Cyber Technologies within Existing Agencies} identifies an impact of the fraction of adversaries who started integrating cyber technologies within existing agencies.
+Second, \textit{Adversaries Integrating Cyber Technologies within New Agencies} identifies an impact of the fraction of adversaries who started integrating cyber technologies within existing agencies.
+
+
+To capture the fraction of a country's adversaries that have begun developing their cyber capabilities through existing or new military agencies, I avoid the complexity of lagging the dependent variable by one period at a time and adding numerous regressors to my model. Instead, I use the approach outlined by \citet{Simmons2004APSR}, applying lagged network-weighted effects to represent the weighted average of a country's adversaries' initial cyber capacity development. This method accounts for the impact of adversaries by assigning weights according to their significance. For instance, if a country faces only one adversary, that adversary’s influence is weighted at 100\%, indicating a major impact on the country’s military decisions. In contrast, if a nation has twenty adversaries, each with a weight of 5\%, the influence of any single adversary on the country’s military decisions is relatively limited. Additional details on the calculation of this weighted average effect are provided in Online Appendix Section 3.1.
+\vspace{3mm} 
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\noindent
+\textbf{\textit{Influence of allies.}}
+To measure the influence of allies, I use \citet{leeds2002alliance}'s Alliance Treaty Obligations and Provisions (ATOP) to identify allies\footnote{
+	As a robustness check, I also use Correlates of War (COW) Project's data on formal alliances (v4.1) to identify alliances \citep{gibler2008international} (see Online Appendix Section 4.1) .
+	} 
+and the SCO data to record where allies started integrating cyber technologies.
+Similarly, I create the following two variables to account for the impact of allies.
+First, \textit{Allies Integrating Cyber Technologies within Existing Agencies} identifies an impact of the fraction of allies who started integrating cyber technologies within existing agencies.
+Second, \textit{Allies Integrating Cyber Technologies within New Agencies} identifies an impact of the fraction of allies that started integrating cyber technologies within existing agencies.
+
+To capture the fraction of a country's allies that have begun developing their cyber capabilities through existing or new military agencies, I similarly use \citet{Simmons2004APSR}'s lagged network-weighted effects. This method, also utilized in recent studies on state military cyber capacity \citep{Kostyuk2024JPR}, accounts for the influence of allies by assigning weights based on their significance. For example, if a country has only one ally, that ally’s influence is weighted at 100\%, meaning their impact on the country's military decisions is substantial. Conversely, if a nation has twenty allies, each with a weight of 5\%, the influence of any single ally is comparatively minor. Further details on the calculation of this weighted average effect can be found in Online Appendix Section 3.1.
+\vspace{3mm}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% interservice rivalry
+\noindent
+\textbf{\textit{Bureaucratic competition and bureaucratic dominance.}}
+To account for bureaucratic competition, I consider whether there is a bureaucratically-dominant agency. Specifically, I create \texttt{Bureaucratic Dominance} that ranges between 0 and 1, where 0 stands for ``no dominance'' and 1 stand for ``complete dominance.'' I operationalize bureaucratic dominance through interservice rivalry and use \citet{Gannon2024}'s panel data on a number of troops within each service branch collected from the International Institute of Strategic Studies' Military Balance database. Since alternative indicators, such as budget allocation, cybersecurity-relevant expertise, are unavailable, military personnel is a commonly used estimator of military capacity \citep{Walter2006AJPS}. As a result, it is a good proxy of interservice rivalry and, by extension, a good indicator of bureaucratic competition. 
+I assume that the more balanced troops distribution is, the higher the likelihood of interservice rivalry and, as a result, the lower the value of \texttt{Bureaucratic Dominance} is. To create \texttt{Bureaucratic Dominance}, I find the proportion of troops belonging to each country's largest service within each year. 
+I converge this number to the percentile across countries. 
+The highest value of this variable receives a ``1'' for the country whose largest service has the highest percentage of troops across all countries within a year and the smallest value receives a ``0'' whose largest service has the smallest percentage of troops across all countries within a year. The values in-between are distributed between 0 and 1.
+
+
+\subsection*{Controls}
+
+
+\noindent
+Besides my main predictors, I also account for a country's GDP per capita.
+Since creating a new agency is more resource-intensive as earlier explained, I hypothesize that wealthier nations might pursue a more expensive option. I account for the country’s wealth measured by a country’s GDP per capita (logged), taken from the World Bank (GDP per capita).
+
+
+\subsection*{Method: Competing risks event history model}
+
+\noindent
+I use a competing risks event history model.\footnote{
+	Event history models have been widely used in political science to explain diffusion processes \citep{Berry1990APSR,Elkins2006IO,Simmons2004APSR,Simmons2018IO}.
+	} 
+Specifically, I employ a Cox Proportional-Hazards (CPH) model that tests for conditions that create a greater likelihood that a country started integrating cyber technologies. 
+I use a competing risks model because the country chooses to incorporate them within either: (1) an existing agency or (2) a new agency (as shown in Figure~\ref{fig:comp_risk}).   
+My unit of analysis is the country-year.
+Following existing
+research \citep{Blessing2020}, the analysis begins in 2000 shortly after the Internet became
+a global commercial network.
+The analysis ends in 2018.
+If a country has not started integrating cyber technologies within its military by December 31, 2018, it is right-censored in my dataset. 
+Since many of the covariates change over time, I use interval censoring to capture time-varying covariates \citep{Therneau2000}.
+Online Appendix Section 3.2 discusses this model in detail and provides additional tests that confirm that the model assumptions are met.
+
+	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% New Section
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section*{Findings}\label{sec:results}
+
+
+\noindent
+My central finding is that allies and  bureaucratic competition most consistently explain a country's choice of how to start incorporating cyber technologies. 
+The results summarized in Table~\ref{tab:mod1} suggest two competing influences of allies. 
+On the one hand, countries imitate their allies by incorporating cyber technologies within existing military agencies. 
+On the other hand, countries complement their allies by incorporating cyber technologies within a newly-created military cyber agency.
+When bureaucratic competition is more pronounced (i.e., bureaucratic dominance is lower), countries are also more likely to create a new agency to start integrating cyber technologies.
+I discuss these results in detail below. 
+
+
+Table~\ref{tab:mod1} presents the obtained results.\footnote{
+	I use hazard ratios to present my results. Hazard ratios (HR) larger than one identify positive correlation and those smaller than one identify negative correlation.
+	} 
+Each model in this table considers the competing choice that a country makes when it starts integrating cyber technologies: (1) to place them within an existing agency (\textit{Event: Existing}; column one in each model) or (2) to create a new cyber agency (\textit{Event: New}; column two in each model).
+The first three models in Table~\ref{tab:mod1} individually consider three primary explanations that I outlined in the theory section---the influence of adversaries (Model 1), the influence of allies (Model 2), and bureaucratic competition and bureaucratic dominance (Model 3).
+Model 4 considers the cumulative impact of all these factors with additional controls. 
+Since Model 4 has the highest model fit (concordance = 0.749), I focus on this model when discussing the obtained results.
+
+
+In Model 4, the impact of adversaries' choices are not statistically significant. 
+These results suggest that a country is unlikely to imitate adversaries when it starts integrating cyber technologies within military, refuting \textit{H1A} and \textit{H1B}. 
+\textit{Allies Integrating Cyber Technologies within Existing Agencies} is positively and statistically significantly correlated with both \textit{Existing} (HR: 1.48, CI: (1.25; 1.77)) and \textit{New} (HR: 1.445, CI: (1.132; 1.84)), suggesting that allies are likely to influence a country's decision to start integrating cyber technologies within existing and new agencies.  
+The fact that a country follows its allies' lead and starts integrating cyber technologies within existing military agencies provides preliminary support for \textit{Hypothesis 2A}.
+But the fact that a country decides to start integrating cyber technologies within a new separate cyber agency when its allies started integrating these technologies within existing agencies refutes \textit{H2B}. 
+This result suggests that allies might be diversifying their cyber toolkit and potentially working on complementing each other's cyber capacity.
+
+\input{draft/Tables/Main/mod1_hr_v2}
+ %ref: tab:mod1
+
+Bureaucratic competition only plays a marginal role in a country's decision to develop a new cybersecurity agency.
+In particular, a negative, marginally statistically significant correlation between \textit{Bureaucratic Dominance} and \textit{New} suggests the more equality exists between military agencies, the more likely a country is to create a new cyber military agency. This result provides preliminary support for \textit{H3A} and refutes \textit{H3B}. 
+Lastly, a country's GDP per capita is positively and statistically significantly correlated with both dependent variables (\textit{Existing}---HR: 2.005, CI: (1.57; 12.57); \textit{New}---HR: 2.270, CI: (1.42; 3.63)), suggesting the richer a country is, the more likely it is to start integrating cyber technologies. 
+
+
+\vspace{3mm}
+
+\noindent
+\textbf{\textit{Robustness Checks.}}
+My main findings are also robust to:
+(1) an alternative measure of alliances (the Correlates of War (COW) Project's data on formal alliances (v4.1) \citep{gibler2008international}); 
+(2) alternative network specifications (socio-cultural partners and neighbors); and 
+(3) an alternative functional form of the covariates (the inverse hyperbolic sine function). 
+These results provide further support that allies and bureaucratic competition are likely to affect how nations start incorporating cyber technologies within their militaries.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section*{Identifying Future Adopters of Cyber Technologies}\label{sec:predictions}
+
+\noindent
+To what extent does my model predict future events?
+I identify the likely candidates for 2019 and 2020, using the estimates from Model 4 (Table~\ref{tab:mod1}) trained on data from 2000 to 2018.
+Figure~\ref{fig:predictions}, which
+depicts the relative rank of countries that started developing military cyber capabilities in the years 2019 through 2020, presents the results. 
+The y-axis displays the percentile rank (out of 100\%) of relative risk for starting developing these capabilities as predicted in Model 4 fit using data from the 2000-2018 period.  
+The 2019 and 2020 events  are out-of-sample, prospective predictions. 
+Since a CPH model provides predictions of relative (and not absolute) annual risk, 
+I convert relative risk into percentile ranks within each year for ease of interpretation.
+\textit{Agency Type} identifies how countries started developing cyber capabilities---either within \textit{existing} or \textit{new} military agencies. 
+The obtained results illustrate the potential predictive power of my model. 
+Specifically, of the seven countries that started started developing cyber capabilities in 2019 and 2020 as listed in Figure~\ref{fig:predictions}, my model ranks three---Armenia, Uruguay, and Bahrain---at least at 80\%.
+These results provide corroborating evidence to validate my theoretical explanations and demonstrate external efficacy and validity of my model. 
+Not only is my model likely to predict which countries are likely to start incorporating cyber technologies in the future, but it is also likely to predict when and how this process will take place. 
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{figure}[ht]
+	\centering
+	\caption{\textsc{Predictions: Percentile Rank of Relative Risk for Starting Developing Military Cyber Capabilities}}
+	\label{fig:predictions}
+	\vspace{2mm}
+	\centering
+	\includegraphics[width=\textwidth]{Figures/comp_risk/predictions_v2.pdf}
+	\caption*{\scriptsize \textit{Note:} 
+		This plot depicts the relative rank of countries that started developing military cyber capabilities. The y-axis displays the percentile rank (out of 100\%) of relative risk for starting developing these capabilities as predicted in Model 4 in (Table~\ref{tab:mod1}), fit using data from the 2000-2018 period, making the events occurring in 2019 and 2020 independent look-ahead predictions. This model, a Cox Proportional-Hazards Model, provides predictions of relative (and not absolute) annual risk.  I convert the relative risk into percentile ranks within each year for ease of interpretation. \textit{Agency Type} identifies how countries started developing cyber capabilities---either within \textit{existing} or \textit{new} military agencies.
+			}
+\end{figure}
+
+
+\section*{Additional Analyses: Explaining the influence of allies}
+
+\noindent
+The obtained results reveal an intriguing dynamic concerning the influence of allies on a country's decision to develop its military cyber capabilities. On one hand, states may choose to start developing these capabilities within existing military agencies if their allies have already done so, thereby replicating their allies' approach. On the other hand, states might opt to establish a new military agency for cyber capabilities if their allies have implemented these capabilities within existing agencies, thus complementing their allies' approach. What explains this dynamic?
+
+
+To answer this question, this article builds on the alliance literature that demonstrates that not all alliances are the same. In particular, \citet{leeds2005alliancedataset} distinguishes between offensive, defense, non-aggression, neutrality, and consultation pacts. Since my analysis starts in 2000, offensive pacts that used to be common in the twentieth century are out of scope. Defensive pacts are alliances that assist each other ``militarily in the event of attacks on the ally’s sovereignty or territorial integrity'' \citep[11]{leeds2005alliancedataset}. Neutrality pacts, nonaggression pacts, and consultation pacts obligate members to ``cooperation short of active military support'' \citep[11]{leeds2005alliancedataset}.
+Neutrality and nonaggression pacts promise to ``refrain from military conflict with an ally.'' A neutrality pact commits a member to refrain from assisting an ally’s adversary in a conflict. Alliance members who promise neutrality not only commit not to join the conflict against their ally, but also to facilitate their ally’s success. Consultation pacts ``commit the members to attempt to develop coordinated action'' in case of a potential military conflict \citep[11-12]{leeds2005alliancedataset}.
+
+
+Using Model 4 from Table~\ref{tab:mod1} as a base model, I re-ran the results for each type of alliances. Online Appendix Section 5 %Tables~\ref{tab:mod2a}-~\ref{tab:mod2b} 
+presents the obtained results. They demonstrate that only defensive alliances (Model 5 in the Online Appendix) exhibit only the replication dynamic, which aligns with the hypothesis proposed by my theory (\textit{H2A} and \textit{H2B}). This is not surprising, as defensive alliances have an incentive to adopt similar structures to facilitate joint exercises. 
+
+Neutrality (Model 6 in the Online Appendix) and non-aggression pacts (Model 7 in the Online Appendix) show replication behavior only with respect to existing agencies (i.e., if a country’s allies started developing cyber capabilities within existing military agencies, the country is more likely to follow suit). Neutrality pacts (Model 6 in the Online Appendix) also exhibit complementarity trends when allies create new agencies (i.e., if a country’s allies started developing cyber capabilities within new military agencies, the country is more likely to start developing capabilities within existing military agencies). Non-aggression pacts (Model 7 in the Online Appendix) display complementarity trends for allies' existing agencies (i.e., if a country’s allies start developing cyber capabilities within existing military agencies, the country is more likely to start developing capabilities within military agencies). Lastly, consultation pacts show replication behavior only for new agencies (i.e., if a country’s allies start developing cyber capabilities within new military agencies, the country is more likely to do the same).
+
+This analysis suggests that neutrality and non-aggression pacts predominantly drive the complementary behavior observed in Table~\ref{tab:mod1}. Future research should explore the mechanisms underlying this behavior within these types of alliances.
+
+
+%%%%%%%%%%%%%%%%%%%%
+% NEW SECTION
+%%%%%%%%%%%%%%%%%%%%
+
+\section*{Discussion and Implications}\label{sec:discussion}
+
+\noindent
+This research addresses the following question: \textit{How do nations begin developing their cyber capabilities within their militaries?} In particular, \textit{which organizations are established for this task?} The results suggest that allies and bureaucratic competition play a crucial role in this process. Responses to allied behavior create interesting dynamics. On one hand, states may follow their allies by integrating cyber technologies into existing military agencies if their allies have already done so. On the other hand, states might complement their allies' actions by setting up new military agencies to integrate cyber technologies when their allies have started integrating these technologies within existing agencies. While the replication dynamic is somewhat common across all types of alliances, the complementarity dynamic is typically observed only in neutrality and nonaggression pacts. Bureaucratic competition influences the integration process through bureaucratic dominance: the more equal the distribution of power among military agencies, the more likely a country is to establish a new agency for the initial development of cyber capabilities. 
+
+
+% implications
+% implications # 1: 
+These findings have several important implications.
+First, the fact that threats are insufficient in explaining proliferation of cyber capabilities presents a departure from existing scholarship that prioritize threats as one of the main drivers of cyber capabilities \citep{gomez2016arming, Calderaro2020}. 
+It also departs from scholarship that focuses on external threats as one of the primary drivers of military innovations \citep{posen1993nationalism, waltz1979theory, Resende2007}.
+The transnational nature of cyber-threats and states' digital interconnectedness motivate states to address threats collectively; as a result, the presence or absence of cyber-capable allies is 
+one of the drivers of when and how states incorporate cyber technologies. 
+As digital threats continue to expand (with the Internet-of-things, artificial intelligence, and quantum computing), the influence of allies should only become more salient.
+
+
+% implication #2: allies
+Second, my results reinforce prior findings that allies play a role in diffusion of new technologies (e.g., \citep{Kostyuk2024JPR}) and add more nuance to this important role. 
+They suggest that not only a membership within a military alliance, but also choices member-states make when integrating new technologies affect a nation's decision when it comes to innovation. 
+States imitate their allies when integrating cyber technologies within their militaries, a pattern observed across all types of alliances. However, only nonaggression and neutrality pacts also exhibit complementarity with their allies' cyber capabilities. Future research should explore the factors driving this complementary behavior among these types of alliances.
+
+
+% implication %3: 
+The findings enhance our understanding of how countries organize their use of cyber weapons, with significant implications for military innovation military effectiveness. The role of allies and bureaucratic politics in shaping the development of cyber capabilities underscores the importance of international collaboration and internal power dynamics. States aligning their cyber capabilities with those of their allies can benefit from shared expertise and standardized practices, potentially enhancing overall cyber effectiveness. Conversely, the tendency to establish new agencies for cyber capabilities, driven by internal power structures, highlights the influence of bureaucratic politics. While this can lead to more specialized and effective cyber units, it may also introduce additional layers of bureaucracy that could impact agility and coordination. Understanding these dynamics helps policymakers anticipate how cyber technologies will spread and affect operational capacity, such as expecting that countries without a dominant military agency are more likely to create new agencies dedicated to cyber-threats. This insight is crucial for navigating the complexities of integrating new technologies and managing military organizations.
+
+
+% implications for operational capacity implications + combined arms approach
+A key implication of the study is that new, specialized cyber agencies can enhance operational capacity for cyber missions over the long term. However, integrating cyber capabilities into existing military organizations could offer benefits for combined-arms operations, where cyber is used alongside conventional forces. There appears to be a trade-off between the deep specialization of new cyber organizations and the broader operational integration of cyber capabilities with conventional military assets. While specialized agencies may boost cyber effectiveness, embedding cyber into existing organizations might improve overall operational synergy. This potential tradeoff highlights an important consideration for future research, exploring how cyber integration impacts combined-arms operations.
+
+
+% limitations + future research
+Future research should also focus on the ongoing integration of cyber technologies within militaries. 
+While this article addresses only the initial integration phase, countries typically continue beyond this step. Most nations that initially started developing cyber capabilities within existing military agencies eventually establish new military organizations specifically dedicated to cybersecurity. Additionally, researchers should examine capability beyond military agencies to determine which agencies are prioritized in addressing cybersecurity challenges that often require intergovernmental cooperation. Finally, recent studies highlight the importance of organizational culture in developing cyber strategies (e.g., \citet{Kostyuk2022sources, Schneider2024digital, Lonergan2024emerging}). Future work should investigate what role organizational culture plays in the establishment of cyber-specific military organizations through detailed case studies.
+
+
+Much of our current understanding of international politics rests on the assumption that state behavior is shaped by the threat of war and the pursuit of military capability. 
+The empirical study of politics thus depends on how states develop capacity by integrating new technologies,  which play a pivotal role in war causation, arms races, alliance formation, conflict duration, or crisis escalation, among others.
+While this article presents the first comprehensive analysis of how states design their militaries when integrating cyber technologies, future research can add more nuanced explanations of this complex political phenomenon. 
+
+
+  
+\clearpage
+% 
+
+
+
+
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%
+% BIBLIOGRAPHY
+%
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\normalsize
+\bibliographystyle{apsr}
+%\clearpage
+\footnotesize{ \singlespacing\bibliography{draft/references_correct}}
+
+\normalsize
+\clearpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%
+% BACK MATTER
+%
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\\
+%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%
+
+
+\end{document}
