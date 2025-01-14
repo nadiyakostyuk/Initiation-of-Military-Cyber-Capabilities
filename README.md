@@ -4,9 +4,9 @@
 
 <h2> The Paper </h2>
 
-<a href= "https://github.com/nadiyakostyuk/Initiation-of-Military-Cyber-Capabilities/blob/main/draft/competing_risk_main_w_author_info.pdf">Main Manuscript </a>
+<a href= "https://github.com/nadiyakostyuk/Initiation-of-Military-Cyber-Capabilities/blob/main/draft/manuscript_final.pdf">Main Manuscript </a>
 
-<a href= "https://github.com/nadiyakostyuk/Initiation-of-Military-Cyber-Capabilities/blob/main/draft/competing_risk_revisions_appendix.pdf"> Online Appendix </a>
+<a href= "https://github.com/nadiyakostyuk/Initiation-of-Military-Cyber-Capabilities/blob/main/draft/online_appendix_final.pdf"> Online Appendix </a>
 
 
 <h2> Replication Code and Analysis </h2>
